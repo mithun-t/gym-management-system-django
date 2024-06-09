@@ -1,7 +1,8 @@
+from django.http import HttpResponse
 from django.shortcuts import  redirect, render
 from .forms import RegisterForm, TrainerForm, UserForm
 from .models import Registers, Trainers
-
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 @login_required
@@ -114,3 +115,16 @@ def disapprove_trainer(request, trainer_id):
     user.save()
     return redirect('trainers_list')
 
+def total_members_count(request):
+    members_count = User.objects.filter(is_staff=False).count()
+    return HttpResponse(f"<script>alert('{members_count}');window.location.replace('/home');</script>")
+
+def total_trainers_count(request):
+    trainers_count = User.objects.filter(is_staff=True , is_superuser = False).count()
+    return HttpResponse(f"<script>alert('{trainers_count}');window.location.replace('/home');</script>")
+
+def gender_count(request):
+    male_count = Registers.objects.filter(sex='Male').count()
+    female_count = Registers.objects.filter(sex='Female').count()
+    others_count = Registers.objects.filter(sex='Other').count()
+    return HttpResponse(f"<script>alert('Total Male : {male_count}, Total Female: {female_count}, Total Gender: {others_count}');window.location.replace('/home');</script>")

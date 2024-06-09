@@ -1,8 +1,10 @@
+from django.http import HttpResponse
 from .forms import PlanForm, PaymentForm,PlanSelectionForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Plan, Payment
 from dateutil.relativedelta import relativedelta
+from django.utils import timezone
 
 @login_required
 def create_plan(request):
@@ -50,3 +52,15 @@ def select_plan(request):
 def payment_list(request):
     payments = Payment.objects.filter(user=request.user)
     return render(request, 'memberships/payment_list.html', {'payments': payments})
+
+@login_required
+def total_active_members(request):
+    today = timezone.now().date()
+    active_members_count = Payment.objects.filter(expiry_date__gte=today).count()
+    return HttpResponse(f"<script>alert('Total Active Members: {active_members_count}');window.location.replace('/home');</script>")
+
+@login_required
+def total_expired_memberships(request):
+    today = timezone.now().date()
+    expired_memberships_count = Payment.objects.filter(expiry_date__lt=today).count()
+    return HttpResponse(f"<script>alert('Total Expired Memberships: {expired_memberships_count}');window.location.replace('/home');</script>")

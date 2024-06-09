@@ -16,4 +16,7 @@ urlpatterns = [
     path('delete_trainer/<int:trainer_id>/', delete_trainer, name='delete_trainer'),
     path('approve_trainer/<int:trainer_id>/', approve_trainer, name='approve_trainer'),
     path('disapprove_trainer/<int:trainer_id>/', disapprove_trainer, name='disapprove_trainer'),
+    path('total_members_count/', total_members_count, name='total_members_count'),
+    path('total_trainers_count/', total_trainers_count, name='total_trainers_count'),
+    path('gender_count/', gender_count, name='gender_count'),
 ]
