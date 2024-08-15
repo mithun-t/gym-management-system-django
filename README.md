@@ -35,7 +35,7 @@ Visit the live demo: [Gym Management System](https://mithunt04.pythonanywhere.co
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/gym-management-system.git
+   git clone https://github.com/mithun-t/gym-management-system.git
    cd gym-management-system
 2. **Create and activate a virtual environment:**
     ```bash
@@ -54,7 +54,7 @@ Visit the live demo: [Gym Management System](https://mithunt04.pythonanywhere.co
    ```bash
    python manage.py runserver
 7. **Access the application:**
-   Open your web browser and go to `http://127.0.0.1:8000/`
+   Open your web browser and go to `http://localhost:8000/`
 
 
 
