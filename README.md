@@ -56,8 +56,6 @@ Visit the live demo: [Gym Management System](https://mithunt04.pythonanywhere.co
 7. **Access the application:**
    Open your web browser and go to `http://localhost:8000/`
 
-
-
 ## Technologies Used
 - Backend: Django
 - Database: SQLite (default, can be replaced with PostgreSQL, MySQL, etc.)
