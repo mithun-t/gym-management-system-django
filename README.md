@@ -2,8 +2,6 @@
 Gym Management System - Built using the Django framework, this system provides a user-friendly interface for gym administrators, trainers and members.
 A comprehensive solution for efficiently managing various aspects of a fitness facility. Built using the Django framework, this system provides a user-friendly interface for both gym administrators and members.
 
-Visit the live demo: [Gym Management System](https://mithunt04.pythonanywhere.com/)
-
 ## Features
 
 - **Member Management:** 
